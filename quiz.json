@@ -1,0 +1,56 @@
+{
+	"quiz1" {
+		"name": "Quiz 1",
+		"First": {
+			"Question": "Do you need another Front End?",
+			"ans": {
+				"1": {
+					"value": "yes",
+					"weight": 30
+				},
+				"2": {
+					"value": "no",
+					"weight": 10
+				},
+				"3": {
+					"value": "maybe",
+					"weight": 20
+				}
+			}
+		},
+		"Second": {
+			"Question": "Which level are you looking for?",
+			"ans": {
+				"1": {
+					"value": "Senior",
+					"weight": 30
+				},
+				"2": {
+					"value": "Mid weight",
+					"weight": 20
+				},
+				"3": {
+					"value": "Junior",
+					"weight": 10
+				}
+			}
+		},
+		"Third": {
+			"Question": "Would you like my CV?",
+			"ans": {
+				"1": {
+					"value": "yes",
+					"weight": 30
+				},
+				"2": {
+					"value": "no",
+					"weight": 10
+				},
+				"3": {
+					"value": "maybe",
+					"weight": "20"
+				}
+			}
+		}
+	}
+}
