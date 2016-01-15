@@ -1,5 +1,5 @@
 {
-	"quiz1" {
+	"quiz1": {
 		"name": "Quiz 1",
 		"First": {
 			"Question": "Do you need another Front End?",
