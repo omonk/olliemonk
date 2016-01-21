@@ -15,7 +15,7 @@ gulp.task('sass', function() {
 		errLogToConsole: true
 	}))
 	.pipe(gp.autoprefixer())
-	.pipe(gulp.dest(`./css`))
+	.pipe(gulp.dest('./css'))
 })
 
 // var bundleErrHandler = function(err) {
