@@ -6,7 +6,7 @@ var gp = require('gulp-load-plugins')(),
 
 // gulp.task('assets', ['sass', 'scripts', 'media'])
 
-// gulp.task('media', () => gulp.src([`${sourceDir}/{img,fonts,admin}/**/*`]).pipe(gulp.dest(publicDir)))
+// gulp.task('media', () => gulp.src(['${sourceDir}/{img,fonts,admin}/**/*']).pipe(gulp.dest(publicDir)))
 
 gulp.task('sass', function() {
 	return gulp.src('./scss/styles.scss')
@@ -36,7 +36,7 @@ gulp.task('sass', function() {
 // 	}
 
 // 	const bundler = browserify({
-// 		entries: [`${sourceDir}/scripts/${jsFile}`],
+// 		entries: ['${sourceDir}/scripts/${jsFile}'],
 // 		transform: [babelify.configure(babelOpts)],
 // 		debug: true,
 // 		cache: {}, packageCache: {}, fullPaths: true,
@@ -51,8 +51,8 @@ gulp.task('sass', function() {
 // 			.pipe(source(jsFile))
 // 			.pipe(buffer())
 // 			.pipe(gp.if(deploy, gp.uglify()))
-// 			.pipe(gulp.dest(`${publicDir}/scripts`))
-// 		gp.util.log(`Browserify built: ${(new Date).toTimeString()}`)
+// 			.pipe(gulp.dest('${publicDir}/scripts'))
+// 		gp.util.log('Browserify built: ${(new Date).toTimeString()}')
 // 		return bundle
 // 	}
 
@@ -64,9 +64,9 @@ gulp.task('default', function(callback) {
 
 	watching = true
 
-	gulp.watch(`./scss/**/*.scss`, ['sass'])
-	gulp.watch(`./fonts/**/*`, ['fonts'])
-	gulp.watch(`./img/**/*`, ['images'])
+	gulp.watch("./scss/**/*.scss", ['sass'])
+	gulp.watch('./fonts/**/*', ['fonts'])
+	gulp.watch('./img/**/*', ['images'])
 })
 
 // gulp.task('build', function(callback) {
