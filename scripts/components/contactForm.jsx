@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Button from './button.jsx';
+import Slider from './slider.jsx';
+import MountingButton from './ComponentLifecycle.jsx';
 
 class ContactForm extends React.Component {
     constructor() {
@@ -12,6 +14,7 @@ class ContactForm extends React.Component {
         }
         this.update = this.update.bind(this)
     }
+
     update(e){
         this.setState({
             red: ReactDOM.findDOMNode(this.refs.red.refs.inp).value,
@@ -21,30 +24,22 @@ class ContactForm extends React.Component {
     }
 
     render(){
+        var blockColor = {
+            background: 'rgb(' + this.state.red + ',' + this.state.green + ',' + this.state.blue + ')',
+            width: 200,
+            height: 200
+        }
         return (
             <div>
-                <Slider ref="red" update={this.update} />
+                <Button type="submit">Button</Button>
+                <Slider ref="red" update={this.update}/>
                 {this.state.red}
-                <br/>
-                <Slider ref="green" update={this.update} />
+                <Slider ref="green" update={this.update}/>
                 {this.state.green}
-                <br/>
-                <Slider ref="blue" update={this.update} />
+                <Slider ref="blue" update={this.update}/>
                 {this.state.blue}
-                <br/>
-                <Button></Button>
-            </div>
-        )
-    }
-}
-class Slider extends React.Component {
-    render() {
-        return(
-            <div>
-            <input ref="inp" type="range"
-            min="0"
-            max="255"
-            onChange={this.props.update}/>
+                <div style={blockColor}></div>
+
             </div>
         )
     }
