@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Button from './button.jsx';
 
 class ContactForm extends React.Component {
     constructor() {
@@ -30,6 +31,7 @@ class ContactForm extends React.Component {
                 <br/>
                 <Slider ref="blue" update={this.update} />
                 {this.state.blue}
+                <Button type="init">Submit</Button>
             </div>
         )
     }
