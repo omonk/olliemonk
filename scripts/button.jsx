@@ -11,7 +11,8 @@ class Button extends React.Component {
 }
 
 Button.defaultProps = {
-    type: 'submit'
+    type: 'submit',
+    children: 'this is a button'
 }
 
 export default Button

@@ -32,7 +32,7 @@ class ContactForm extends React.Component {
                 <Slider ref="blue" update={this.update} />
                 {this.state.blue}
                 <br/>
-                <Button>Submit</Button>
+                <Button></Button>
             </div>
         )
     }
