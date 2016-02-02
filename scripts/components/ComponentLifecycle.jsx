@@ -10,7 +10,7 @@ class MountingButton extends React.Component {
 
     update() {
         this.setState({
-            val: this.sate.val + 1
+            val: this.state.val + 1
         })
     }
 
@@ -19,6 +19,7 @@ class MountingButton extends React.Component {
     }
 
     render() {
+        console.log('rendering')
         return (
             <button onClick={this.update} type="submit">{this.state.val}</button>
         );
@@ -27,6 +28,39 @@ class MountingButton extends React.Component {
     componentDidMount() {
         console.log('mounted');
     }
+
+    componentWillUnmount() {
+        console.log('unmounted');
+    }
 }
 
-export default MountingButton
+class Wrapper extends React.Component {
+
+    constructor() {
+        super();
+    }
+
+    mount() {
+        ReactDOM.render(<MountingButton/>, document.getElementById('a'))
+    }
+
+    unmount() {
+        ReactDOM.unmountComponentAtNode(document.getElementById('a'))
+    }
+
+    render() {
+        return (
+            <div>
+                <button onClick={this.mount.bind(this)}>Mount</button>
+                <button onClick={this.unmount.bind(this)}>UnMount</button>
+                <div id="a"></div>
+            </div>
+        )
+    }
+}
+
+export default Wrapper
+
+// ReactDOM.render(
+//     <Wrapper/>, document.getElementById('contact')
+// )
