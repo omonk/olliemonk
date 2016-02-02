@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Button from './button.jsx';
-import Slider from './slider.jsx';
+import Slider from './Slider.jsx';
 import MountingButton from './ComponentLifecycle.jsx';
 
 class ContactForm extends React.Component {

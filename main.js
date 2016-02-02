@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 // import ContactForm from './scripts/components/contactForm.jsx';
 import MountingButton from './scripts/components/ComponentLifecycle.jsx';
 import Wrapper from './scripts/components/ComponentLifecycle.jsx';
+import FormGroup from './scripts/components/FormGroup.jsx'
 
 
-ReactDOM.render(<MountingButton/>, document.getElementById('contact'))
+ReactDOM.render(<MountingButton/>, document.getElementById('contact'));

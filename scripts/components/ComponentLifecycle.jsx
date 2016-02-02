@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import FormGroup from './FormGroup.jsx';
 
 class MountingButton extends React.Component {
     constructor() {
@@ -30,12 +31,12 @@ class MountingButton extends React.Component {
 
     componentDidMount() {
         console.log('mounted');
-        this.inc = setInterval(this.update, 500)
+        // this.inc = setInterval(this.update, 500)
     }
 
     componentWillUnmount() {
         console.log('unmounted');
-        clearInterval(this.inc)
+        // clearInterval(this.inc)
     }
 }
 
@@ -59,6 +60,7 @@ class Wrapper extends React.Component {
                 <button onClick={this.mount.bind(this)}>Mount</button>
                 <button onClick={this.unmount.bind(this)}>UnMount</button>
                 <div id="a"></div>
+                <FormGroup />
             </div>
         )
     }
