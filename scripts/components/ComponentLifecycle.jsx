@@ -16,21 +16,26 @@ class MountingButton extends React.Component {
 
     componentWillMount(){
         console.log('mounting');
+        this.setState({m: 2})
     }
 
     render() {
         console.log('rendering')
         return (
-            <button onClick={this.update} type="submit">{this.state.val}</button>
+            <button onClick={this.update} type="submit">
+            {this.state.val * this.state.m}
+            </button>
         );
     }
 
     componentDidMount() {
         console.log('mounted');
+        this.inc = setInterval(this.update, 500)
     }
 
     componentWillUnmount() {
         console.log('unmounted');
+        clearInterval(this.inc)
     }
 }
 
