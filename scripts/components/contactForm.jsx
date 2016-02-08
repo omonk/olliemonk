@@ -15,7 +15,32 @@ class ContactForm extends React.Component {
         this.update = this.update.bind(this)
     }
 
-    update(e){
+    copy(e) {
+        var t = e.target,
+            c = t.dataset.copytarget,
+            inp = (c ? document.querySelector(c) : null);
+
+            console.log(t, c);
+
+        if (inp && inp.select) {
+            // select text
+            inp.select();
+
+            try { //try to copy the text
+                console.log('copied');
+                document.execCommand('copy');
+                inp.blur()
+            }
+
+            catch(err) {
+                console.log('nope');
+            }
+        } else {
+            console.log('false');
+        }
+    }
+
+    update(e) {
         this.setState({
             red: ReactDOM.findDOMNode(this.refs.red.refs.inp).value,
             green: ReactDOM.findDOMNode(this.refs.green.refs.inp).value,
@@ -23,23 +48,22 @@ class ContactForm extends React.Component {
         })
     }
 
+    componentDidMount() {
+        var el = document.getElementById('color-val');
+            el.addEventListener('click', this.copy, true);
+    }
+
     render(){
         var blockColor = {
-            background: 'rgb(' + this.state.red + ',' + this.state.green + ',' + this.state.blue + ')',
-            width: 200,
-            height: 200
+            background: 'rgb(' + this.state.red + ',' + this.state.green + ',' + this.state.blue + ')'
         }
         return (
-            <div>
-                <Button type="submit">Button</Button>
-                <Slider ref="red" update={this.update}/>
-                {this.state.red}
-                <Slider ref="green" update={this.update}/>
-                {this.state.green}
-                <Slider ref="blue" update={this.update}/>
-                {this.state.blue}
-                <div style={blockColor}></div>
-
+            <div className="container ta-c">
+                <div className="block-color m-t" style={blockColor}></div>
+                <Slider class="input-range red" ref="red" update={this.update}/>
+                <Slider class="input-range green" ref="green" update={this.update}/>
+                <Slider class="input-range blue" ref="blue" update={this.update}/>
+                <p onClick={this.copy} id="color-val" className="m-t">RGB({this.state.red}, {this.state.green}, {this.state.blue})</p>
             </div>
         )
     }
@@ -48,3 +72,5 @@ class ContactForm extends React.Component {
 ReactDOM.render(
     <ContactForm/>,document.getElementById('contact')
 );
+
+export default ContactForm

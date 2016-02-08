@@ -13,7 +13,7 @@ body {
 }
 
 .m-t {
-	margin-top: $base-unit;	
+	margin-top: $base-unit;
 }
 
 .m-t-05 {
@@ -68,6 +68,10 @@ body {
 	padding-left: $base-unit-half;
 }
 
+.ta-c {
+	text-align: center;
+}
+
 .container {
 	max-width: $container-width;
 	width: 100%;
@@ -78,4 +82,70 @@ body {
 	display: block;
 	margin: 0 auto;
 	max-width: 100%;
+}
+
+.block-color {
+	max-width: 400px;
+	height: 400px;
+	width: 100%;
+}
+
+input[type=range] {
+	-webkit-appearance: none;
+
+	&::-webkit-slider-runnable-track  {
+		border-radius: 0;
+		background-color: #ddd;
+		height: 5px;
+		width: 100%;
+	}
+
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		border: none;
+		height: 16px;
+		width: 16px;
+		border-radius: 50%;
+		margin-top: -4px;
+	}
+
+	&:focus {
+		-webkit-appearance: none;
+		outline: none;
+	}
+}
+
+input.red {
+	border-right: 1px solid darken(#ddd, 30%);
+
+	&::-webkit-slider-thumb {
+		background: #e74c3c;
+	}
+}
+
+input.green {
+	border-right: 1px solid darken(#ddd, 30%);
+
+	&::-webkit-slider-thumb {
+		background: #2ecc71;
+	}
+}
+
+input.blue {
+	&::-webkit-slider-thumb {
+		background: #3498db;
+	}
+}
+
+
+
+
+
+input[type=range]::-webkit-slider-thumb,
+input[type=range]::-moz-range-thumb,
+input[type=range]::-ms-thumb {
+	-webkit-appearance: none;
+	background-color: pink;
+	width: 10px;
+	height: 20px;
 }

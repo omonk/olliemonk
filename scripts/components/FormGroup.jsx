@@ -25,11 +25,11 @@ class FormGroup extends React.Component {
         console.log(this.state.inputOne);
         return (
             <div>
-                <AnInput ref="inputOne" type="text" update={this.update}/>
+                <AnInput ref="inputOne" thisType="range" update={this.update}/>
                 {this.state.inputOne}
                 <br/>
                 <br/>
-                <AnInput ref="inputTwo" type="text" update={this.update}/>
+                <AnInput ref="inputTwo" thisType="textarea" update={this.update}/>
                 {this.state.inputTwo}
             </div>
         )
@@ -40,7 +40,7 @@ class AnInput extends React.Component {
     render() {
         return (
             <div>
-                <input ref="inp" type="text" onChange={this.props.update}/>
+                <input ref="inp" type={this.props.thisType} onChange={this.props.update}/>
             </div>
         )
     }

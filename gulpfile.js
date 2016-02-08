@@ -3,7 +3,7 @@ var gp = require('gulp-load-plugins')(),
 	gulp = require('gulp')
 
 gulp.task('sass', function() {
-	return gulp.src('./scss/styles.scss')
+	return gulp.src('./app/scss/styles.scss')
 	.pipe(gp.plumber({errorHandler: gp.notify.onError('Error: <%= error.message %>')}))
 	.pipe(gp.sass({
 		errLogToConsole: true
@@ -15,7 +15,7 @@ gulp.task('sass', function() {
 gulp.task('default', function(callback) {
 
 	watching = true
-	gulp.watch("./scss/**/*.scss", ['sass'])
-	gulp.watch('./fonts/**/*', ['fonts'])
-	gulp.watch('./img/**/*', ['images'])
+	gulp.watch("./app/scss/**/*.scss", ['sass'])
+	// gulp.watch('./app/fonts/**/*', ['fonts'])
+	// gulp.watch('./app/img/**/*', ['images'])
 })
