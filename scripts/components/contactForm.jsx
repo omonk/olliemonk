@@ -17,34 +17,20 @@ class ContactForm extends React.Component {
 
     copy(e) {
         var t = e.target,
-            c = t.dataset.copytarget,
             all = document.querySelectorAll('#color-val span'),
-            strng = [],
-            inp = (c ? document.querySelector(c) : null);
+            strng = [];
 
             for (var i = 0; i < all.length; i++) {
                 strng.push(all[i].innerHTML)
             }
 
         var color =  strng.join('');
-
         console.log(color);
-
-        if (inp && inp.select) {
-            // select text
-            inp.select();
-
-            try { //try to copy the text
-                console.log('copied');
-                document.execCommand('copy');
-                inp.blur()
-            }
-
-            catch(err) {
-                console.log('nope');
-            }
-        } else {
-            console.log('false');
+        
+        try { //try to copy the text
+            document.execCommand('copy', false, color);
+        }catch(err) {
+            console.log('nope');
         }
     }
 
@@ -57,7 +43,7 @@ class ContactForm extends React.Component {
     }
 
     componentDidMount() {
-        var el = document.getElementById('color-val');
+        var el = document.getElementById('copy-btn');
             el.addEventListener('click', this.copy, true);
     }
 
@@ -71,7 +57,8 @@ class ContactForm extends React.Component {
                 <Slider class="input-range red" ref="red" update={this.update}/>
                 <Slider class="input-range green" ref="green" update={this.update}/>
                 <Slider class="input-range blue" ref="blue" update={this.update}/>
-                <p onClick={this.copy} id="color-val" className="m-t">RGB({this.state.red}, {this.state.green}, {this.state.blue})</p>
+                <p id="color-val" className="m-t">RGB({this.state.red}, {this.state.green}, {this.state.blue})</p>
+                <button onClick={this.copy} id="copy-btn">copy to clipboard</button>
             </div>
         )
     }
