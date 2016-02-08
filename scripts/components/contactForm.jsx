@@ -18,9 +18,17 @@ class ContactForm extends React.Component {
     copy(e) {
         var t = e.target,
             c = t.dataset.copytarget,
+            all = document.querySelectorAll('#color-val span'),
+            strng = [],
             inp = (c ? document.querySelector(c) : null);
 
-            console.log(t, c);
+            for (var i = 0; i < all.length; i++) {
+                strng.push(all[i].innerHTML)
+            }
+
+        var color =  strng.join('');
+
+        console.log(color);
 
         if (inp && inp.select) {
             // select text
